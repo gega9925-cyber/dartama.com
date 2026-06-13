@@ -1499,21 +1499,21 @@
         <div class="contact-form">
           <div class="form-group">
             <label class="form-label">الاسم الكامل</label>
-            <input type="text" class="form-input" placeholder="أدخل اسمك">
+            <input type="text" id="wa-name" class="form-input" placeholder="أدخل اسمك">
           </div>
           <div class="form-group">
             <label class="form-label">البريد الإلكتروني</label>
-            <input type="email" class="form-input" placeholder="بريدك الإلكتروني">
+            <input type="email" id="wa-email" class="form-input" placeholder="بريدك الإلكتروني">
           </div>
           <div class="form-group">
             <label class="form-label">الموضوع</label>
-            <input type="text" class="form-input" placeholder="موضوع رسالتك">
+            <input type="text" id="wa-subject" class="form-input" placeholder="موضوع رسالتك">
           </div>
           <div class="form-group">
             <label class="form-label">الرسالة</label>
-            <textarea class="form-textarea" placeholder="اكتب رسالتك هنا..."></textarea>
+            <textarea id="wa-message" class="form-textarea" placeholder="اكتب رسالتك هنا..."></textarea>
           </div>
-          <button class="btn-primary" onclick="alert('شكراً لك! سيتم التواصل معك قريباً.')">إرسال الرسالة ✉</button>
+          <button class="btn-primary" onclick="sendToWhatsApp()">إرسال عبر واتساب ✉</button>
         </div>
       </div>
     </div>
@@ -1710,6 +1710,27 @@
   reveals.forEach(el => revealObserver.observe(el));
 
 })();
+</script>
+
+<script>
+function sendToWhatsApp() {
+  // ============================================
+  // PASTE YOUR WHATSAPP GROUP LINK BELOW
+  // Example: 'https://chat.whatsapp.com/ABC123XYZ'
+  var groupLink = 'https://chat.whatsapp.com/K4WGQArrCjDGdvqCsvI6nS?s=cl&p=i&ilr=4';
+  // ============================================
+
+  window.open(groupLink, '_blank');
+
+  document.getElementById('wa-name').value    = '';
+  document.getElementById('wa-email').value   = '';
+  document.getElementById('wa-subject').value = '';
+  document.getElementById('wa-message').value = '';
+
+  setTimeout(function() {
+    alert('شكراً لك! سيتم فتح واتساب لإرسال رسالتك');
+  }, 300);
+}
 </script>
 </body>
 </html>
